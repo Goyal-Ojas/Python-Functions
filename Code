@@ -1,0 +1,93 @@
+"""
+@author: Ojas Goyal
+"""
+
+# Answer to Exercise 1
+from datetime import datetime, timedelta
+date_string = "Feb 25 2018 6:30PM"
+date_object = datetime.strptime(date_string, "%b %d %Y %I:%M%p")
+formatted_date = date_object.strftime("%Y-%m-%d %H:%M:%S")
+print(formatted_date)
+
+day_of_week = date_object.strftime("%A")
+print(day_of_week)
+
+new_date = date_object + timedelta(days=7, hours=12)
+new_date_string = new_date.strftime("%b %d %Y %I:%M%p")
+print(new_date_string)
+
+# Answer to Exercise 2
+    # Truth Table:
+player1_choices = ['Rock', 'Paper', 'Scissors']
+player2_choices = ['Rock', 'Paper', 'Scissors']
+
+print(f"{'Player 1':<10} {'Player 2':<10} {'Outcome':<10}")
+
+for p1_choice in player1_choices:
+    for p2_choice in player2_choices:
+        if p1_choice == p2_choice:
+            outcome = 'Tie'
+        elif (p1_choice == 'Rock' and p2_choice == 'Scissors') or \
+             (p1_choice == 'Paper' and p2_choice == 'Rock') or \
+             (p1_choice == 'Scissors' and p2_choice == 'Paper'):
+            outcome = 'Player 1 Wins'
+        else:
+            outcome = 'Player 2 Wins'
+
+        print(f"{p1_choice:<10} {p2_choice:<10} {outcome:<10}")
+
+    # Game:
+def get_input1():
+    while True:
+        user_input = input("Player 1, Enter your choice (Rock/Paper/Scissors): ").capitalize()
+        if user_input in ['Rock', 'Paper', 'Scissors']:
+            return user_input
+        else:
+            print("This is not a valid object selection. Please choose Rock, Paper, or Scissors.")
+
+def get_input2():
+    while True:
+        user_input = input("Player 2, Enter your choice (Rock/Paper/Scissors): ").capitalize()
+        if user_input in ['Rock', 'Paper', 'Scissors']:
+            return user_input
+        else:
+            print("This is not a valid object selection. Please choose Rock, Paper, or Scissors.")
+
+player1 = get_input1()
+player2 = get_input2()
+
+if player1 == player2:
+    outcome = 'It\'s a Tie!'
+elif (player1 == 'Rock' and player2 == 'Scissors') or \
+     (player1 == 'Paper' and player2 == 'Rock') or \
+     (player1 == 'Scissors' and player2 == 'Paper'):
+    outcome = 'Player 1 Wins!'
+else:
+    outcome = 'Player 2 Wins!'
+
+print(f"Player 1 - {player1}")
+print(f"Player 2 - {player2}")
+print(outcome)
+
+# Answer to Exercise 3
+for denominator in range(2, 11):
+    decimal_equivalent = 1/denominator
+    print(f"1/{denominator}={decimal_equivalent}")
+    
+for num in range(2, 27, 2):
+    print("Generated Number:", num)
+    
+j=0
+sum11 = 0
+while j<10:
+    sum11 = 11*j + sum11
+    print("j: "+str(j)+" sum11 "+str(sum11))
+    j=j+1
+print('')
+print("Total sum is:", sum11)
+
+# Answer to Exercise 4
+cluster = b'\xd0\x9f\xd0\xb5\xd1\x80\xd1\x83 \xd0\xbf\xd0\xbe\xd0\xb1\xd0\xb5\xd0\xb4\xd0\xb8\xd1\x82!'
+decoded_cluster = cluster.decode('utf-8')
+print(decoded_cluster)
+    # Message says "Peru will win!"
